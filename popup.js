@@ -137,10 +137,6 @@ document.addEventListener('DOMContentLoaded', function() {
       endKey.innerHTML = "Ctrl + Shift + X to stop capture";
     }
   })
-  // const options = document.getElementById("options");
-  // options.onclick = () => {chrome.runtime.openOptionsPage()};
-  // const git = document.getElementById("GitHub");
-  // git.onclick = () => {chrome.tabs.create({url: "https://github.com/arblast/Chrome-Audio-Capturer"})};
   const goodpods = document.getElementById("goodpods");
   goodpods.onclick = () => {chrome.tabs.create({url: "https://github.com/Mike-Do/Podclipper"})};
 

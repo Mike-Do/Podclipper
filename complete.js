@@ -1,8 +1,9 @@
+// import axios from "axios";
+
 document.addEventListener('DOMContentLoaded', () => {
   const encodeProgress = document.getElementById('encodeProgress');
   const saveButton = document.getElementById('saveCapture');
   const closeButton = document.getElementById('close');
-  const review = document.getElementById('review');
   const status = document.getElementById('status');
   let format;
   let audioURL;
@@ -44,13 +45,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const currentDate = new Date(Date.now()).toDateString();
       saveButton.onclick = () => {
         chrome.downloads.download({url: url, filename: `${currentDate}.${format}`, saveAs: true});
+        // axios.post('#', {
+
+        // })
+        // .then(resp => console.log(resp));
       };
       saveButton.style.display = "inline-block";
     }
   });
-  review.onclick = () => {
-    chrome.tabs.create({url: "https://chrome.google.com/webstore/detail/chrome-audio-capture/kfokdmfpdnokpmpbjhjbcabgligoelgp/reviews"});
-  }
 
 
 })

@@ -1,0 +1,26 @@
+{
+  "name": "Podclipper",
+  "version": "1.0.0",
+  "description": "Podclipper is a Chrome extension that allows users to capture any audio playing on the current tab. Multiple tabs can be captured simultaneously. Completed captures will be downloaded to the chrome downloads folder and will be saved as .wav or .mp3 files. Users will have the option to mute tabs that are currently being captured.",
+  "main": "background.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mike-Do/Podclipper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mike-Do/Podclipper/issues"
+  },
+  "homepage": "https://github.com/Mike-Do/Podclipper#readme",
+  "dependencies": {
+    "axios": "^0.21.0"
+  }
+}
