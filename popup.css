@@ -13,12 +13,16 @@ body {
   white-space: nowrap;
 }
 
+#brand {
+  margin-left: 14px;
+}
+
 .header {
   display: flex;
   align-items: center;
   padding-bottom: 15px;
-  border-bottom: 2px solid darkred;
   white-space: nowrap;
+  background-color: #e5e5e5;
 }
 
 .header img {
@@ -69,17 +73,21 @@ li {
   display: none;
   text-align: center;
   padding: 10px;
-  border: 2px solid darkred;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  background-color: lavenderblush;
+  background-size: 200% auto;
+  color: white;
+ /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
   border-radius: 5px;
+  /* background-image: linear-gradient(to right, #ad5389 50%, #3c1053 100%); */
+  background-image: linear-gradient(to right, #fbc2eb 0%, #ad5389 51%, #3c1053 100%);
 }
 
 .button:hover {
-  color: red;
-  background-color: darkred;
+  background-position: right center; /* change the direction of the change here */
 }
 
 .notes {

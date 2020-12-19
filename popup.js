@@ -130,11 +130,11 @@ document.addEventListener('DOMContentLoaded', function() {
   cancelButton.onclick = () => {chrome.runtime.sendMessage("cancelCapture")};
   chrome.runtime.getPlatformInfo((info) => {
     if(info.os === "mac") {
-      startKey.innerHTML = "Command + Shift + U to start capture on current tab";
-      endKey.innerHTML = "Command + Shift + X to stop capture on current tab";
+      startKey.innerHTML = "Command + Shift + U to start capture";
+      endKey.innerHTML = "Ctrl + Shift + X to stop capture";
     } else {
-      startKey.innerHTML = "Ctrl + Shift + S to start capture on current tab";
-      endKey.innerHTML = "Ctrl + Shift + X to stop capture on current tab";
+      startKey.innerHTML = "Ctrl + Shift + S to start capture";
+      endKey.innerHTML = "Ctrl + Shift + X to stop capture";
     }
   })
   // const options = document.getElementById("options");
