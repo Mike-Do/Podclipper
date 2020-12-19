@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //initial settings
   chrome.storage.sync.get({
     muteTab: false,
-    maxTime: 1200000,
+    maxTime: 60000,
     format: "mp3",
     quality: 192,
     limitRemoved: false
@@ -43,12 +43,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   maxTime.onchange = () => {
     status.innerHTML = "";
-    if(maxTime.value > 20) {
-      maxTime.value = 20;
+    if(maxTime.value > 1) {
+      maxTime.value = 1;
     } else if (maxTime.value < 1) {
       maxTime.value = 1;
     } else if (isNaN(maxTime.value)) {
-      maxTime.value = 20;
+      maxTime.value = 1;
     }
   }
 
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
   save.onclick = () => {
     chrome.storage.sync.set({
       muteTab: mute.checked,
-      maxTime: maxTime.value*60000,
+      maxTime: 60000,
       format: currentFormat,
       quality: quality.value,
       limitRemoved: limitRemoved.checked

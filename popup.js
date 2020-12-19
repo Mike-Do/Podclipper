@@ -15,12 +15,12 @@ const displayStatus = function() { //function to handle the display of time and 
       chrome.runtime.sendMessage({currentTab: tabs[0].id}, (response) => {
         if(response) {
           chrome.storage.sync.get({
-            maxTime: 1200000,
+            maxTime: 60000,
             limitRemoved: false
           }, (options) => {
             if(options.maxTime > 1200000) {
               chrome.storage.sync.set({
-                maxTime: 1200000
+                maxTime: 60000
               });
               timeLeft = 1200000 - (Date.now() - response)
             } else {
@@ -137,9 +137,11 @@ document.addEventListener('DOMContentLoaded', function() {
       endKey.innerHTML = "Ctrl + Shift + X to stop capture on current tab";
     }
   })
-  const options = document.getElementById("options");
-  options.onclick = () => {chrome.runtime.openOptionsPage()};
-  const git = document.getElementById("GitHub");
-  git.onclick = () => {chrome.tabs.create({url: "https://github.com/arblast/Chrome-Audio-Capturer"})};
+  // const options = document.getElementById("options");
+  // options.onclick = () => {chrome.runtime.openOptionsPage()};
+  // const git = document.getElementById("GitHub");
+  // git.onclick = () => {chrome.tabs.create({url: "https://github.com/arblast/Chrome-Audio-Capturer"})};
+  const goodpods = document.getElementById("goodpods");
+  goodpods.onclick = () => {chrome.tabs.create({url: "https://github.com/Mike-Do/Podclipper"})};
 
 });
