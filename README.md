@@ -1,8 +1,8 @@
-# Chrome Audio Capture
+# Podclipper
 
-Chrome Audio Capture is a Chrome extension that allows users to capture any audio playing on the current tab. Multiple tabs can be captured simultaneously. Completed captures will be downloaded to the chrome downloads folder and will be saved as .wav or .mp3 files. Users will have the option to mute tabs that are currently being captured.
+Podclipper is a Chrome extension that allows users to capture any audio playing on the current tab. Multiple tabs can be captured simultaneously. Completed captures will be downloaded to the chrome downloads folder and will be saved as .wav or .mp3 files. Users will have the option to mute tabs that are currently being captured.
 
-Chrome Audio Capture is available in the [Chrome Store](https://chrome.google.com/webstore/detail/chrome-audio-capture/kfokdmfpdnokpmpbjhjbcabgligoelgp)
+Podclipper is available in the [Chrome Store](https://chrome.google.com/webstore/detail/chrome-audio-capture/kfokdmfpdnokpmpbjhjbcabgligoelgp)
 
 Hotkeys for Windows:
  - Ctrl + Shift + S: Start capture on current tab
