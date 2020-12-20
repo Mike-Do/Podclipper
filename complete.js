@@ -1,5 +1,3 @@
-import axios from "/axios";
-
 document.addEventListener('DOMContentLoaded', () => {
   const encodeProgress = document.getElementById('encodeProgress');
   const saveButton = document.getElementById('saveCapture');
@@ -8,13 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
   let format;
   let audioURL;
   let encoding = false;
-  console.log(axios);
   chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if(request.type === "createTab") {
       format = request.format;
       let startID = request.startID;
       status.innerHTML = "Please wait...";
-      console.log(request);
+      status.innerHTML = `${request.startUrl}`;
+      console.log(request)
+      console.log(window.location.toString());
       closeButton.onclick = () => {
         chrome.runtime.sendMessage({cancelEncodeID: startID});
         chrome.tabs.getCurrent((tab) => {

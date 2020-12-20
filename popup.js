@@ -22,7 +22,7 @@ const displayStatus = function() { //function to handle the display of time and 
               chrome.storage.sync.set({
                 maxTime: 60000
               });
-              timeLeft = 1200000 - (Date.now() - response)
+              timeLeft = 60000 - (Date.now() - response)
             } else {
               timeLeft = options.maxTime - (Date.now() - response)
             }
@@ -137,6 +137,8 @@ document.addEventListener('DOMContentLoaded', function() {
       endKey.innerHTML = "Ctrl + Shift + X to stop capture";
     }
   })
+  const options = document.getElementById("options");
+  options.onclick = () => {chrome.runtime.openOptionsPage()};
   const goodpods = document.getElementById("goodpods");
   goodpods.onclick = () => {chrome.tabs.create({url: "https://github.com/Mike-Do/Podclipper"})};
 

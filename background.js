@@ -21,12 +21,12 @@ const WORKER_FILE = {
 // default configs
 const CONFIGS = {
   workerDir: "/workers/",     // worker scripts dir (end with /)
-  numChannels: 2,     // number of channels
-  encoding: "wav",    // encoding (can be changed at runtime)
+  numChannels: 2,             // number of channels
+  encoding: "wav",            // encoding (can be changed at runtime)
 
   // runtime options
   options: {
-    timeLimit: 1200,           // recording time limit (sec)
+    timeLimit: 60,           // recording time limit (sec)
     encodeAfterRecord: true, // process encoding after recording
     progressInterval: 1000,   // encoding progress report interval (millisec)
     bufferSize: undefined,    // buffer size (use browser default)
@@ -166,10 +166,14 @@ class Recorder {
 const audioCapture = (timeLimit, muteTab, format, quality, limitRemoved) => {
   chrome.tabCapture.capture({audio: true}, (stream) => { // sets up stream for capture
     let startTabId; //tab when the capture is started
+    let startTabUrl;
     let timeout;
     let completeTabID; //tab when the capture is stopped
     let audioURL = null; //resulting object when encoding is completed
-    chrome.tabs.query({active:true, currentWindow: true}, (tabs) => startTabId = tabs[0].id) //saves start tab
+    chrome.tabs.query({active:true, currentWindow: true}, (tabs) => {
+      startTabId = tabs[0].id;
+      startTabUrl = tabs[0].id;
+    }) //saves start tab
     const liveStream = stream;
     const audioCtx = new AudioContext();
     const source = audioCtx.createMediaStreamSource(stream);
@@ -226,9 +230,9 @@ const audioCapture = (timeLimit, muteTab, format, quality, limitRemoved) => {
           chrome.tabs.create({url: "complete.html"}, (tab) => {
             completeTabID = tab.id;
             let completeCallback = () => {
-              chrome.tabs.sendMessage(tab.id, {type: "createTab", format: format, audioURL, startID: startTabId});
+              chrome.tabs.sendMessage(tab.id, {type: "createTab", format: format, audioURL, startUrl: startTabUrl, startID: startTabId});
             }
-            setTimeout(completeCallback, 1000);
+            setTimeout(completeCallback, 500);
           });
           closeStream(endTabId);
         }
@@ -246,7 +250,7 @@ const audioCapture = (timeLimit, muteTab, format, quality, limitRemoved) => {
       })
     }
 
-//removes the audio context and closes recorder to save memory
+    //removes the audio context and closes recorder to save memory
     const closeStream = function(endTabId) {
       chrome.commands.onCommand.removeListener(onStopCommand);
       chrome.runtime.onMessage.removeListener(onStopClick);
