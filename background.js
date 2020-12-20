@@ -228,7 +228,7 @@ const audioCapture = (timeLimit, muteTab, format, quality, limitRemoved) => {
             let completeCallback = () => {
               chrome.tabs.sendMessage(tab.id, {type: "createTab", format: format, audioURL, startID: startTabId});
             }
-            setTimeout(completeCallback, 500);
+            setTimeout(completeCallback, 1000);
           });
           closeStream(endTabId);
         }
