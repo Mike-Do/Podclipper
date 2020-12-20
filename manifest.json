@@ -11,7 +11,7 @@
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html",
-    "default_title": "Open Podclipper interface"
+    "default_title": "Open Podclipper Interface"
   },
   "options_page": "options.html",
   "background": {

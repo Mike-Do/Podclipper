@@ -227,10 +227,12 @@ const audioCapture = (timeLimit, muteTab, format, quality, limitRemoved) => {
         endTabId = tabs[0].id;
         if(mediaRecorder && startTabId === endTabId){
           mediaRecorder.finishRecording();
+          console.log(window.location.href);
           chrome.tabs.create({url: "complete.html"}, (tab) => {
             completeTabID = tab.id;
             let completeCallback = () => {
               chrome.tabs.sendMessage(tab.id, {type: "createTab", format: format, audioURL, startUrl: startTabUrl, startID: startTabId});
+              // chrome.tabs.sendMessage(tab.id, {type: "createTab", format: format);
             }
             setTimeout(completeCallback, 500);
           });
@@ -285,6 +287,21 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 const startCapture = function() {
+  chrome.tabs.query(
+    {
+        currentWindow: true,    // currently focused window
+        active: true            // selected tab
+    },
+    function (foundTabs) {
+        if (foundTabs.length > 0) {
+            var url = foundTabs[0].url; // <--- this is what you are looking for
+            console.log(url);
+            console.log("Completed");
+        } else {
+            // there's no window or no selected tab
+        }
+    }
+  );
   chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
     // CODE TO BLOCK CAPTURE ON YOUTUBE, DO NOT REMOVE
     // if(tabs[0].url.toLowerCase().includes("youtube")) {

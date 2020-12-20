@@ -29,6 +29,7 @@ function init(config) {
     initBuffers();
 }
 
+
 function record(inputBuffer) {
     for (var channel = 0; channel < numChannels; channel++) {
         recBuffers[channel].push(inputBuffer[channel]);

@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
       status.innerHTML = "Please wait...";
       status.innerHTML = `${request.startUrl}`;
       console.log(request)
-      console.log(window.location.toString());
+      // console.log(window.location.toString());
       closeButton.onclick = () => {
         chrome.runtime.sendMessage({cancelEncodeID: startID});
         chrome.tabs.getCurrent((tab) => {
