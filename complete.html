@@ -1,9 +1,9 @@
 <html>
   <head>
     <title>Podclipper Options</title>
+    <script src="/node_modules/axios/dist/axios.min.js"></script>
     <script type="module" src="complete.js"></script>
     <link rel="stylesheet" href="complete.css" type="text/css">
-    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
   </head>
   <body>
     <div class="header"><h1 class="header-title">Podclipper</h1></div>
@@ -18,9 +18,9 @@
       <p id="url"></p>
       <form id="userInput" action="#">
         <h3>Post Title</h3>
-        <input class="textbox" type="text" id="fname" name="title" placeholder="Name"><br>
-        <h3>Post URL</h3>
-        <input class="textbox" type="text" id="lname" name="url" placeholder="https://"><br><br>
+        <input class="textbox" type="text" id="fname" name="title" placeholder="Name">
+        <!-- <h3>Post URL</h3>
+        <input class="textbox" type="text" id="lname" name="url" placeholder="https://"> -->
         <input class="submit" type="submit" value="Submit">
       </form>
     </div>

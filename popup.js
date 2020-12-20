@@ -18,7 +18,7 @@ const displayStatus = function() { //function to handle the display of time and 
             maxTime: 60000,
             limitRemoved: false
           }, (options) => {
-            if(options.maxTime > 1200000) {
+            if(options.maxTime >= 1200000) {
               chrome.storage.sync.set({
                 maxTime: 60000
               });

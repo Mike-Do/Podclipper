@@ -11,8 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
       format = request.format;
       let startID = request.startID;
       status.innerHTML = "Please wait...";
-      status.innerHTML = `${request.startUrl}`;
-      console.log(request)
+      // status.innerHTML = `${request.startUrl}`;
+      // console.log(request)
+      // console.log(axios)
       // console.log(window.location.toString());
       closeButton.onclick = () => {
         chrome.runtime.sendMessage({cancelEncodeID: startID});
@@ -24,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
       //if the encoding completed before the page has loaded
       if(request.audioURL) {
         encodeProgress.style.width = '100%';
-        status.innerHTML = "File is ready!"
+        status.innerHTML = "File is ready!";
         generateSave(request.audioURL);
       } else {
         encoding = true;
