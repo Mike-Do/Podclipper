@@ -33,6 +33,15 @@
   background-color: #3c1053;
 }
 
+#userInput {
+  margin-left: 20px;
+}
+
+.textbox {
+  height: 25;
+  font-size: 14px;
+}
+
 #saveCapture {
   display: none;
 }
@@ -63,7 +72,20 @@
   background-image: linear-gradient(to right, #D0ABFF 0%, #ad5389 51%, #3c1053 100%);
 }
 
-.button:hover {
+.submit {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  border-radius: 5px;
+  background-image: linear-gradient(to right, #D0ABFF 0%, #ad5389 51%, #3c1053 100%);
+}
+
+.button:hover, .submit:hover {
   background-position: right center;
 }
 

@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/Mike-Do/Podclipper#readme",
   "dependencies": {
-    "axios": "^0.21.0"
+    "axios": "^0.21.0",
+    "webpack": "^5.11.0",
+    "webpack-cli": "^4.2.0"
   }
 }

@@ -172,7 +172,7 @@ const audioCapture = (timeLimit, muteTab, format, quality, limitRemoved) => {
     let audioURL = null; //resulting object when encoding is completed
     chrome.tabs.query({active:true, currentWindow: true}, (tabs) => {
       startTabId = tabs[0].id;
-      startTabUrl = tabs[0].id;
+      startTabUrl = tabs[0].url;
     }) //saves start tab
     const liveStream = stream;
     const audioCtx = new AudioContext();
@@ -310,15 +310,15 @@ const startCapture = function() {
       if(!sessionStorage.getItem(tabs[0].id)) {
         sessionStorage.setItem(tabs[0].id, Date.now());
         chrome.storage.sync.get({
-          maxTime: 1200000,
+          maxTime: 60000,
           muteTab: false,
           format: "mp3",
           quality: 192,
           limitRemoved: false
         }, (options) => {
           let time = options.maxTime;
-          if(time > 1200000) {
-            time = 1200000
+          if(time > 60000) {
+            time = 60000
           }
           audioCapture(time, options.muteTab, options.format, options.quality, options.limitRemoved);
         });

@@ -86,6 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
       quality: quality.value,
       limitRemoved: limitRemoved.checked
     });
-    status.innerHTML = "Settings saved!"
+    status.innerHTML = "Podclipper is now ready to use!"
   }
 });
