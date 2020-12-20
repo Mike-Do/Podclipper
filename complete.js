@@ -1,6 +1,3 @@
-// import axios from "./axios";
-const axios = require("axios");
-
 document.addEventListener('DOMContentLoaded', () => {
   const encodeProgress = document.getElementById('encodeProgress');
   const saveButton = document.getElementById('saveCapture');
